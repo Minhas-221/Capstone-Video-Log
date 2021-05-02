@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../static/css/contactstyle.css">
+
+</head>
+<style>
+    label.lb {
+        font-weight: bold;
+        margin-top: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    nav li {
+        float: left;
+        text-decoration: none;
+    }
+    
+    nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    nav li a:hover:not(.active) {
+        background-color: #111;
+    }
+    
+    .active {
+        background-color: #577e0e;
+    }
+
+    body {
+        background-image: url('media/pic/bg1.jpg');
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/  
+        background-size: cover;
+        /*background-size: 1550px,500px;*/
+        
+      }
+</style>
+<body>
+    <div>
+    <nav>
+        <ul>
+            <li><a href="/"> Home screen </a></li>
+            <li><a href="form"> Moodle Main Screen </a></li>
+            <li><a class="active" href="contactus"> Contact us </a></li>
+        </ul>
+    </nav>
+</div>
+    <!-- <br><br><br> -->
+    <div>
+    <div class="header1">
+        <div class="contact-form">
+    <h1> Contact Us: </h1>
+
+    <form action="/action_page.php">
+        <div class="txtb">
+            <label >Enter Full Name: </label>
+            <input type="text">
+        </div>
+        <br>
+        <br>
+        <div class="txtb">
+        <label for="email">Enter your email: </label>
+        <input type="email" id="email" name="email"><br><br>
+        </div>
+        <br>
+        <br>
+        <div class="txtb">
+            <label for="number">Enter Phone Number: </label>
+            <input type="text">
+        </div>
+        <br>
+        <br>
+        <div class="text1">
+            <label>Feedback: </label>
+            <textarea cols="30" rows="5"></textarea>
+        </div>
+        
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+      </form>
+        
+</div>
+</body>
+</html>

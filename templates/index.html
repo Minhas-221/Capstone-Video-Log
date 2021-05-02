@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <!-- <link rel="stylesheet" href="contactus.html"> -->
+
+<style>
+
+    body {
+        background-image: url('media/pic/bg1.jpg');
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/  
+        background-size: cover;
+        /*background-size: 1550px,500px;*/
+        
+      }
+
+
+</style>
+
+    
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a class="active" href="/"> Home Screen </a></li>
+            <li><a href="form"> Moodle Main Screen </a></li>
+            <li><a href="contactus"> Contact us </a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <br>
+        <h1>{{ msg }}</h1>
+        {% for course in courses %}
+        <br>
+        <div class="card"  style="width: 40rem; margin-left: 250px; margin-top:5px" >
+            <img class=" card-img-top" src="{{course.img.url}}" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title">{{course.name}}</h5>
+                <p class="card-text">Course Description : {{course.dis}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Branch : {{course.branch}}</li>
+                <li class="list-group-item">Start Date : {{ course.date }}</li>
+                <li class="list-group-item">Credits : {{ course.credit }}</li>
+                <li class="list-group-item">Total Time : {{ course.ttime }} hrs</li>
+                <li class="list-group-item">
+                    Course Type : {% if course.ctype %} Compulsory Course {% else %} Audit Course {% endif %}
+                </li>
+                <li class="list-group-item">
+                    Faculty :
+                    {% if course.fac1 == "True" %}
+                    Mr. Manish Hurkat
+                    <br>
+                    {% endif %}
+                    {% if course.fac2 == "True" %}
+                    Prof. Eswaran Narasimhan
+                    <br>
+                    {% endif %}
+                    {% if course.fac3 == "True" %}
+                    Mr. Gurendra Nath Bhardwaj
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

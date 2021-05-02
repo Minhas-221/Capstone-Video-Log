@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+    <style>
+        label.lb {
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+
+        body {
+            background-image: url('media/pic/bg1.jpg');
+            background-repeat: no-repeat;
+            /*background-attachment: fixed;*/  
+            background-size: cover;
+            /*background-size: 1550px,500px;*/
+            
+          }
+
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/"> Home screen </a></li>
+            <li><a class="active" href="form"> Moodle Main Screen </a></li>
+            <li><a href="contactus"> Contact us </a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="card" style="margin-top: 50px; margin-bottom: 50px">
+            <div class="card-body">
+                <form action="cform" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md">
+                            <label class="lb" for="branch">Select a branch :</label><br>
+                            <select id="branch" name="branch">
+                                <option value="" disabled selected>Select</option>
+                                <option value="CSE">Computer Science & Engineering</option>
+                                <option value="EE">Electrical Engineering</option>
+                                <option value="ECE">Electronics & Communication Engineering</option>
+                                <option value="AE">Aeronautical Engineering</option>
+                            </select>
+                        </div>
+                        <div class="col-md">
+                            <label class="lb" for="cname">Enter course name :</label><br>
+                            <input type="text" id="cname" name="cname">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label class="lb" for="cid">Enter Course ID :</label><br>
+                            <input type="text" id="cid" name="cid">
+                            </select>
+                        </div>
+                        <div class="col-md">
+                            <label class="lb" for="sdate">Commemncement date of the course :</label><br>
+                            <input type="date" id="sdate" name="date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label class="lb">Total Credits of the course :</label><br>
+                            <input type="radio" id="1c" name="cr" value="1">
+                            <label for="1c">1 Credit</label><br>
+                            <input type="radio" id="2c" name="cr" value="2">
+                            <label for="2c">2 Credits</label><br>
+                            <input type="radio" id="3c" name="cr" value="3">
+                            <label for="3c">3 Credts</label><br>
+                            <input type="radio" id="4c" name="cr" value="4">
+                            <label for="4c">4 Credits</label>
+                        </div>
+                        <div class="col-md">
+                            <label class="lb" for="cdis">Enter course description :</label><br>
+                            <textarea id="cdis" rows="3" name="cdis"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <input type="hidden" name="fac1" value="False">
+                            <input type="hidden" name="fac2" value="False">
+                            <input type="hidden" name="fac3" value="False">
+                            <label class="lb">Assocaited Faculty :</label><br>
+                            <input type="checkbox" id="fac1" name="fac1" value="True">
+                            <label for="fac1"> Mr. Manish Hurkat </label><br>
+                            <input type="checkbox" id="fac2" name="fac2" value="True">
+                            <label for="fac2"> Prof. Eswaran Narasimhan </label><br>
+                            <input type="checkbox" id="fac3" name="fac3" value="True">
+                            <label for="fac3"> Mr. Gurendra Nath Bhardwaj </label>
+                        </div>
+                        <div class="col-md">
+                            <label class="lb" for="img" style="margin-bottom: 15px;">Upload image related to the course :</label><br>
+                            <input type="file" id="img" name="img" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label class="lb" for="tt">Total Time in hours required for the completion of the course :</label><br>
+                            <input type="text" id="tt" name="tt">
+                        </div>
+                        <div class="col-md">
+                            <label for="ct" class="lb">Select course Type :</label><br>
+                            <input type="radio" id="cc" name="cc" value="True">
+                            <label for="cc">Compulsory Course</label><br>
+                            <input type="radio" id="ac" name="cc" value="False">
+                            <label for="ac">Audit Course</label>
+                        </div>
+                    </div><br>
+
+                    <input type="submit" value="Insert" name="b1">
+                    <input type="submit" value="Update" name="b1">
+                    <input type="submit" value="Delete" name="b1">
+                    <!-- <input type="submit" value="Select" name="b1"> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
